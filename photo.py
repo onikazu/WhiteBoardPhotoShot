@@ -76,7 +76,11 @@ def on_message(client, userdata, msg):
         #
         now = datetime.datetime.now()
         # ファイル名
-        picture = APP_ROOT + inifile.get('room', 'room') + "({0:%Y-%m-%d %H:%M:%S})".format(now) + ".jpeg"
+        # picture = APP_ROOT + inifile.get('room', 'room') + "({0:%Y-%m-%d %H:%M:%S})".format(now) + ".jpeg"
+        # スペースが空くとエラーなので
+        picture = picture = APP_ROOT + "_MAXHEADROOM_" + "({0:%Y-%m-%d%H:%M:%S})".format(now) + ".jpeg"
+
+
         # cv2.imwrite(picture, img)
         cmd = "chmod +x takeshot.sh".split()
         subprocess.call(cmd)
