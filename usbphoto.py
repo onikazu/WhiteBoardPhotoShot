@@ -74,7 +74,7 @@ def on_message(client, userdata, msg):
         # r, img = c.read()
         now = datetime.datetime.now()
         # ファイル名
-        picture = APP_ROOT + inifile.get('room','room') + "({0:%Y-%m-%d %H:%M:%S})".format(now) +".jpg"
+        picture = APP_ROOT + inifile.get('room','room') + "({0:%Y-%m-%d %H:%M:%S})".format(now) +".jpeg"
         # cv2.imwrite(picture, img)
         cmd = "./takeshot.sh {}".format(picture)
         cmd = cmd.split()
