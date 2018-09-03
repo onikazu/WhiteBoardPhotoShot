@@ -83,6 +83,8 @@ def on_message(client, userdata, msg):
         cmd = "./takeshot.sh {}".format(picture)
         cmd = cmd.split()
         subprocess.call(cmd)
+        print("撮ったよーーーー")
+
 
         GPIO.output(N, GPIO.HIGH)
         time.sleep(1)
