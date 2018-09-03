@@ -78,6 +78,8 @@ def on_message(client, userdata, msg):
         # ファイル名
         picture = APP_ROOT + inifile.get('room', 'room') + "({0:%Y-%m-%d %H:%M:%S})".format(now) + ".jpeg"
         # cv2.imwrite(picture, img)
+        cmd = "chmod +x run.sh".split()
+        subprocess.call(cmd)
         cmd = "./takeshot.sh {}".format(picture)
         cmd = cmd.split()
         subprocess.call(cmd)
