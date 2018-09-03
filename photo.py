@@ -64,15 +64,24 @@ def on_message(client, userdata, msg):
     data = json.loads(msg.payload.decode("utf-8"))["data"][0]
     data = {key:value.strip() for key, value in data.items()}
     if "photo" in data.keys():
-        with picamera.PiCamera() as camera:
-            camera.resolution = (1920, 1080)
-            camera.rotation = inifile.get('camera', 'rotation')
-            camera.start_preview()
-            #camera warm-up time
-            now = datetime.datetime.now()
-            picture = inifile.get('room','room') + "({0:%Y-%m-%d %H:%M:%S})".format(now) +".jpg"
-            camera.capture(picture)
-    
+        # 写真を撮っている部分
+        # with picamera.PiCamera() as camera:
+        #     camera.resolution = (1920, 1080)
+        #     camera.rotation = inifile.get('camera', 'rotation')
+        #     camera.start_preview()
+        #     #camera warm-up time
+        #     now = datetime.datetime.now()
+        #     picture = inifile.get('room','room') + "({0:%Y-%m-%d %H:%M:%S})".format(now) +".jpg"
+        #     camera.capture(picture)
+        #
+        now = datetime.datetime.now()
+        # ファイル名
+        picture = APP_ROOT + inifile.get('room', 'room') + "({0:%Y-%m-%d %H:%M:%S})".format(now) + ".jpeg"
+        # cv2.imwrite(picture, img)
+        cmd = "./takeshot.sh {}".format(picture)
+        cmd = cmd.split()
+        subprocess.call(cmd)
+
         GPIO.output(N, GPIO.HIGH)
         time.sleep(1)
         GPIO.output(N, GPIO.LOW)
