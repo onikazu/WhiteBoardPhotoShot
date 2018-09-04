@@ -76,7 +76,7 @@ def on_message(client, userdata, msg):
         cmd = ("chmod +x " + APP_ROOT + "takeshot.sh").split()
         subprocess.call(cmd)
         print(cmd)
-        cmd = APP_ROOT + "/takeshot.sh {}".format(picture)
+        cmd = APP_ROOT + "takeshot.sh {}".format(picture)
         cmd = cmd.split()
         print(cmd)
         subprocess.call(cmd)
