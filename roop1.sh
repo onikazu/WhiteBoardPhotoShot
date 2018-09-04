@@ -1,4 +1,4 @@
 while :
 do
-	/usr/bin/python2 /home/pi/WhiteBoardPhotoShot/usbphoto.py
+	/usr/bin/python2 /home/pi/WhiteboardPhotoShot/usbphoto.py
 done
