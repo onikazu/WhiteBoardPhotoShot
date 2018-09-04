@@ -3,7 +3,7 @@
 
 case "$1" in
 *\.jpeg)
-	fswebcam -r 3624x2448 -p MJPEG --no-banner $1 -v -S 40 -F 5
+	fswebcam -r 3624x2448 -p MJPEG --no-banner $1 -v -S 40 -F 1
 	;;
 *)
 	echo "output filename Not a .jpeg suffix"
