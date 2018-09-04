@@ -82,8 +82,9 @@ def on_message(client, userdata, msg):
 
 
         # cv2.imwrite(picture, img)
-        cmd = "chmod +x takeshot.sh".split()
+        cmd = ("chmod +x " + APP_ROOT + "takeshot.sh").split()
         subprocess.call(cmd)
+        print(cmd)
         cmd = APP_ROOT + "/takeshot.sh {}".format(picture)
         cmd = cmd.split()
         print(cmd)
